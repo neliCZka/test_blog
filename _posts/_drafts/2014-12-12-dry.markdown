@@ -1,0 +1,49 @@
+---
+layout: post
+title:  "DRY or DRY?"
+date:   2017-12-12
+comments: true
+
+---
+
+<p class="intro"><span class="dropcap">D</span>on't Repeat Yourself - everyone probably heard about this crutial principle of programming.</p>
+
+It is about reusing the same code instad of copy paste it somewhere else. 
+This principle is a must to follow in programming world and I don't want to doubt it at all.
+
+It is perhaps just my problem, but following this rule in my robot tests I got into weird situations. 
+
+I tried to follow the page object pattern at least somewhow, so I had specific test cases for each page's functionality and lower level definitions of test functions together with element locators for the page were in specific resource file for that page. 
+
+But at least in my project we reused multiple structures on multile pages (e.g. some tables, grids,...). 
+
+So I got into situation when I should decide between copy pasting, to have always separated keywords and locators for every page, or not repeating myself and preparing some testing functions shared between more pages, more tests. 
+
+But to have the test fucntions named nicely for every page, I started using this notation:
+{% highlight robotframework %}
+Item ${value} no longer in column ${column} in ${type} grid on ${page}
+{% endhighlight %}
+So the actual use in test was e.g.:
+{% highlight robotframework %}
+Item with value test_email_subject no longer in column Subject in inbox grid on inbox page
+{% endhighlight %}
+Another use would be:
+{% highlight robotframework %}
+Item with value mysuper@email.com no longer in column Recipient in sent grid on sent page
+{% endhighlight %}
+
+This approach looks great on the first sight - it allows me to write a general function reused on more places but with possibility to name it accordingly to the page I use it in the test! Amazing!
+
+#### All that glitters is not gold
+
+But then when you go through the test code, you have no idea that this function can be used on multiple places with different values. You don't know if it is related only to "inbox" or "sent" or whether it is some general function.
+Also my IDE which is Pycharm + Intellibot plugin does not navigate from the general implementation Item ${value} no longer in column ${column} in ${type} grid on ${page} to the actual use which is really painful during refactoring. 
+So this supernice ability to have variables inside of names of functions can also cause troubles. But I have to say I was really amazed by this feature of the Robot Framework from the beginning and I started using it heavily. Now I would consider it twice, because I already had to do some refactoring of that functions and it was not very nice... :)
+
+Sure, I can still change the function just on one place, which is good and I am thankful to Don't Repeat Yourself principle for that, but the acutal readibility and maintanability of the tests is not that good anyway, maybe in this case Do Repeat Yourself would be better and I would always know what function is used for what page and I would never get confused about that. 
+
+So just please think twice what is the best solution in your case all the time, because it does not have to be clear just based on the general rules.
+
+How do you handle this situation? 
+
+Leave a comment, because I would really like to know how other people solve this 'problem'! :)

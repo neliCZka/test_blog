@@ -1,24 +1,27 @@
 ---
 layout: default
-title: About Long Haul
+title: About Nela Smrzova
 ---
 
 <div class="post">
-	<h1 class="pageTitle">About Long Haul</h1>
-	<img src="{{ '/assets/img/touring.jpg' | prepend: site.baseurl }}" alt="">
-	<p class="intro">Long Haul is a minimal, long form <a href="http://jekyllrb.com">Jekyll</a> Theme. It can be used as is or customized to your hearts desire.</p>
-	<p>Long Haul was created in honor of all the hard working touring bicycles that have traversed the globe time and time again. Take it for a spin.</p>
-	<h2>Features</h2>
+	<h1 class="pageTitle">About Nela Smrzova</h1>
+  <p class="intro">Nela Smrzova is a test automation engineer who wants to change the testing world!</p>
+	<img src="{{ '/assets/img/me.jpg' | prepend: site.baseurl }}" alt="">
+	<p>Well, or maybe not really. I just want to keep on improving my skills and share my knowledge with the others, because the beginnings are always difficult, so we all should cooperate and make the testing path easier to each other. :)</p>
+  <p>I really enjoy test automation and I always try to be a valuable member of an agile team. So I am always involved in every activity of the team from refinement to deployment itself and I love it!</p>
+  <p>When I don't do IT, I usually wander around the world with my Canon camera or just go to gym.</p>
+  <p> This blog is mainly about sharing my knowledge, my success stories and also my failures, so hopefully you can avoid mistakes I already made exploring the test automation field. :) </p>
+
+  <p> I am a freelancer now so <b>don't hesitate to <a href="mailto:n.nelis.s@gmail.com">contact me</a></b> if you need a tester, who rocks, on your project! </p>
+
+	<h3>What I do work with</h3>
 	<ul>
-		<li>Built with SASS + GULP + BROWSERSYNC + AUTOPREFIXER</li>
-  		<li>SVG Social Icons from <a href="http://customizr.net/icons/">Customizr</a></li>
-  		<li><a href="http://responsive-nav.com/">Responsive Nav Menu</a></li>
-  		<li><a href="https://github.com/snaptortoise/jekyll-rss-feeds">XML Feed for RSS Readers</a></li>
-  		<li>Contact Form via <a href="http://formspree.io/">Formspree</a></li>
-      <li>5 Post Loop with excerpt on Home Page</li>
-  		<li>Previous / Next Post Navigation</li>
-      <li>Estimated Reading Time for posts</li>
-  		<li><a href="https://github.com/adobe-webplatform/dropcap.js">Drop Cap</a> on posts</li>
-  		<li><a href="http://typecast.com/blog/a-more-modern-scale-for-web-typography">A Better Type Scale</a></li>
+		<li>Python</li>
+  		<li>Robot Framework</li>
+  		<li>SQL</li>
+  		<li>Jenkins</li>
+      <li>JIRA, Confluence</li>
+      <li>GIT</li>
+      <li>JetBrains IDE</li>
   	</ul>
 </div>
