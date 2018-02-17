@@ -2,6 +2,8 @@
 layout: post
 title:  "Test 3rd party component in automated tests?"
 date:   2017-12-24
+comments: true
+
 ---
 
 <p class="intro"><span class="dropcap">S</span>ome time ago I was in a discussion with developers about what to test by my automation tests and what not to test.</p>

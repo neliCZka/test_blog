@@ -2,6 +2,8 @@
 layout: post
 title:  "Is manual testing still needed these days?"
 date:   2017-12-24
+comments: true
+
 ---
 
 <p class="intro"><span class="dropcap">A</span>s the time to market has been getting shorter and shorter recently, the need for fast automated testing is rising.</p>
