@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "How to start using robot framework"
+title:  "How to start using Robot Framework"
 date:   2018-02-18
 comments: true
 
@@ -9,52 +9,45 @@ comments: true
 <p class="intro"><span class="dropcap">T</span>he ultimate guide for the first steps with Robot Framework</p>
 
 
-When I was a total newbie to Robot framework, I was desperately searching for "how to start with robot framework" to understand what should be the first steps and especially what should be the stucture of the test project.  
-To be honest, I did not find much so I started exploring the Robot Framework on my own and started somehow.
-The question is if I started right. And if I continue right... :)<br/>
-I was thinking it might be just my problem and everybody else knows how to start and what to do.
+When I was a newbie to Robot framework, I was desperately searching for "how to start with robot framework" to understand what should be the first steps and especially what should be the stucture of the test project.  
+To be honest, I did not find much so I started exploring the Robot Framework on my own.
+The question is if I started right... :)<br/>
 
-But some time later a new guy was hired to another team using Robot Framework and he came to me and ask me "How to start with Robot framework?"!
-Few weeks later it happened again with another new colleague.
-I hope I this article might help to answer the very basic questions about RF usage. 
+Anyway, few more colleagues who wanted to start with RF came to me and asked me how exactly to start with it. So I hope this article might help you to overcome the very first steps with RF. 
 
 
 #### Before you start with Robot Framework
-Robot Framework can run on any operating system, you just have to have Python installed and pip. 
-Then you can just run this command in command line:
+Robot Framework can run on any operating system, you just have to have Python and pip installed. 
+Then you can run this command in command line:
 {% highlight bash %}
 pip install robotframework
 {% endhighlight %} 
 (don't forget to set proxy if you do it from company network and you need it).
 
-It is also nice to think about the **IDE** which you will use for Robot tests. I use Pycharm with Robot Framework plugin and it wokrs nicely. 
+It is also nice to think about the **IDE** which you will use for building the Robot tests. I use Pycharm with Robot Framework plugin and it works nicely. 
 I extend Robot tests with Python, so it was the best option for me. 
 Robot Framework can be extended also by Java, in that case IntelliJ Idea would be a better option for sure. :)
 
-It is also time to think about the versiuon control, I suggest to use **GIT**. 
-
 #### Start with the project structure
 
-1. Create a **folder for test suites**, naming it "tests" might be a good idea :)
+1. Create a **folder for test suites**, name it "tests"
 2. Create a **folder for lower level keywords or resources**, naming it "resources" or "keywords" could work fine
-3. Create a **folder for custom libraries** which you will create in Python (or other programming language), it coud be "lib" or something like that
-4. Create a **.gitignore file** in the main folder
-    - add some basic file extensions of file which you don't want to track in GIT, those might be good idea:
-        - &#42;.pyc
-        - &#42;.png
-        - &#42;.idea (if you use JetBrains IDE)
-        - &#42;.html
-        - &#42;.xml
-        - &#42;.exe
-        - &#42;.txt
-        - &#42;.log
-        - &#42;.iml (if you use JetBrains IDE)
+3. Create a **folder for custom libraries** which you will create in Python (or other programming language), I use "lib" as name
+4. If you use git as a version control, create a **.gitignore file** in the main folder and add some basic file extensions of files which you don't want to track in GIT, those might be good idea:
+    - &#42;.pyc 
+    - &#42;.png (for the screenshots made by RF)
+    - &#42;.idea (if you use JetBrains IDE)
+    - &#42;.html (for the reports made by RF)
+    - &#42;.xml (for the output of RF)
+    - &#42;.log (for the log of RF)
+    - &#42;.iml (if you use JetBrains IDE
+    - &#42;.exe (for webdriver)
 
 This might give you a better picture of the structure of the test project. Of course, the structure does not have to be like that, but I believe it is a good practice.
 
 #### Let's try to write first test case.
 
-1. Create a robot file inside of "tests" folder. Name it e.g. "tests_login.robot" -> it really depends on you :)
+1. Create a robot file inside of "tests" folder. Name it e.g. "tests_login.robot"
 2. Prepare the structure of the file:
 
 {% highlight robotframework %}
@@ -64,7 +57,6 @@ Documentation     A test suite for login tests
 Library    ExtendedSelenium2Library
 #Resource    ../resources/resource_login.robot
 #Variables  ../variables.py
-#Library     ../lib/YourCustomLib.py
 
 *** Test Cases ***
 
@@ -78,8 +70,7 @@ Please, be sure you have the library installed. :)
 pip install robotframework-extendedselenium2library
 {% endhighlight %} 
 
-
-I added also another imports - commented now. We will get to them later.
+I also have some other imports, (Resources and Variables) commented now because I will get to them later.
 
 #### Let's try to write first test case.
 
@@ -106,13 +97,14 @@ I believe all the ways have its own usage. So which one to choose really depends
 
 I can tell you how I use it:
 
-&#49;. **Environment variables** such as ${server} and ${password} I set from **command line** so I can easily change then for each run of the tests.
-The value will be passed like this:
+&#49;. **Environment variables** such as ${server} and ${password} I set from **command line** so I can easily change them for each run of the tests.</br>
+The value will be passed during robot test invoking, the part with variable looks like this:
 
     {% highlight bash %} 
     --variable server:https://gmail.com
     {% endhighlight %}
-        
+
+Whole command how to run the tests is described at the end of this article.         
 
 &#50;. Variables which I don't change often and which are also **related to configuration** I set in **variable file** (variables.py)
 The value is passed like this:
@@ -120,7 +112,7 @@ The value is passed like this:
         username = 'my_superuser'
         browser = 'chrome'
         {% endhighlight %}
-And this case is exaclty why I have this in the test settings:
+And this case is exaclty why I have this import in the test settings:
 
         {% highlight robotframework %}
         Variables   ../variables.py
@@ -132,8 +124,8 @@ It looks like this:
 {% highlight robotframework %}
 *** Variables ***
 
-${login}    //button[contains(text(),"Login")]  => this is xpath locator which might be used when no better locating is possible (e.g. some nice ID of the element)
-${submit_login}   submit_login  => this means that ID or CLASS of the button element is exactly "submit_login"
+${login}    //button[contains(text(),"Login")]   #this is xpath locator which might be used when no better locating is possible (e.g. some nice ID of the element)
+${submit_login}   submit_login   #this means that ID or CLASS of the button element is exactly "submit_login"
 {% endhighlight %}
 
 To get the variables from another resource into the test, you have to import it as mentioned above:
@@ -184,7 +176,6 @@ Documentation     A test suite for login tests
 Library    ExtendedSelenium2Library
 Resource    ../resources/resource_login.robot
 Variables  ../variables.py
-#Library     ../lib/YourCustomLib.py
 
 *** Test Cases ***
 
@@ -196,8 +187,8 @@ TEST_01: Login to some page
 {% endhighlight %}
 
 #### Declare your test setup and test teardown
-Yeeey, it is nice, right? But the stuff about opening browser is also ugly and it is kinda obvious that UI tests need to open a browser.
-Do we really need to have it in every test?<br/>
+It is nice, right? But the stuff about opening browser is also ugly and it is obvious that UI tests need to open a browser.
+So do we really need to have it in every test?<br/>
 I don't think so. At least in this case we want to open and maximize browser in every test, so why to repeat it all the time?<br/>
 DRY (Don't Repeat Yourself) is really nice programming principle that should be followed also in test automation!
 
@@ -212,7 +203,6 @@ Documentation     A test suite for login tests
 Library    ExtendedSelenium2Library
 Resource    ../resources/resource_login.robot
 Variables  ../variables.py
-#Library     ../lib/YourCustomLib.py
 
 Test Setup    Run Keywords
 ...           Open Browser    ${server}    ${browser}   AND
@@ -236,8 +226,9 @@ Now you might think that the test looks way too short, but this is just very bas
 
 
 #### Run the test
-All right, now we have everything prepared, so how to run the test and see it works?
+Before you run the test, be sure you have a browser installed (e.g. Google Chrome) and also **webdriver** for that browser (for Chrome it is chromedriver) in the main folder of test project.
 
+All right, now we have everything prepared, so how to run the test and see it works?<br/>
 Easy, just go to your terminal and get to the root of the project. 
 Type:
 {% highlight bash %}
@@ -245,7 +236,7 @@ robot --variable server:https://gmail.com --variable password:some_super_pass te
 {% endhighlight %}
 And you should see new browser window opened and it should start clicking instead of you! Yipeee! 
 
-How do you use Robot Framework? What were your first steps and what is your test project structure? <br/>
+How do you use Robot Framework? What were your first steps and what is your test project structure?<br/>
 Share the knowledge in the comments! :)
 
 
