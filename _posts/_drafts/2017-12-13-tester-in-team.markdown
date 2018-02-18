@@ -11,7 +11,7 @@ I went to several interviews quite recently and I have to say that every intervi
 
 #### We wanna monkey that do the stuff
 
-I'll start with the bad example. I came there and first of all I got a test. Really a bunch of papers with questions and tasks that I should finish. I told them that it would be nice to tell me at least some info about the position first. So they told me few words about the project and just wanted me to do the test asap. No wonder that I was already bad-tempered and reserved, I felt uncomfortable. 
+I'll start with the bad example. I came there and first of all I got a test. Really a bunch of papers with questions and tasks that I should finish. I told them that I would love to hear some info about the position first. So they told me few words about the project and just wanted me to do the test asap. No wonder that I was already bad-tempered and reserved, I felt uncomfortable. 
 I did the test. There was a programming on paper (sweet), SQL on paper (also sweet, one does SQL on paper often in real life!), some testing stuff and also some moreless advanced bash commands. 
 I was not mentally prepared for any test, because I expected a chat about the position and about myself first because we can easily find out that it won't be fit anyway. 
 I did not finish everything in the test on time. But they asked how to finish the things which was fine because I could show that I know how to make it work, so I felt better.
@@ -21,7 +21,7 @@ But seriously, you don't want to stuck in a hell just to be paid well.
 
 #### We wanna teammate and a buddy we can rely on
 
-This experience was totally diffeerent. I came to their office and they were smiling to me, starting with some chit chat, making the atmospehere really friendly. So I could open up myself, I felt safe and self-confident. 
+This experience was totally different. I came to their office and they were smiling at me, starting with some chit chat, making the atmospehere really friendly. So I could open up myself, I felt safe and self-confident. 
 All the interview took longer than the first one, but there was no test. It was freindly talk about their company and a project and about myself. Of course, they also tested my skills in natural way during the conversation. They asked me how to do something, how to solve something. Just no pressure. No problem with forgotten "order by" in SQL. Even if we found out that I don't have all the skills they need currently (javascript), it was clear that it would not be that big problem because they were not looking for just specific skillset or just a monkey who will do their nasty stuff. They were really looking for a valuable team member who can do anything in future. They were looking for the ability to grow, for open minded person with good personal dynamics. 
 And yes, it was a fit. 
 At the end I declined that offer just because I decided to continue on my current project, becaue we had some great plans for a bigger refactoring of the codebase in which I could participate also as a developer (for smaller things), but one never knows what's gonna happen next so maybe I will ask them again to reconsider myself. :)
@@ -38,4 +38,4 @@ What is your experience from interviews to tester position?
 
 What are your expectations as interviewer of a tester?
 
-Leave a comment here! :)
+Leave a comment here, because I am really interested! :)
