@@ -83,6 +83,7 @@ I added also another imports - commented now. We will get to them later.
 
 #### Let's try to write first test case.
 
+In the example below I use only keywords from <a href="http://robotframework.org/Selenium2Library/Selenium2Library.html">Selenium2Library</a>. 
 {% highlight robotframework %}
 TEST_01: Login to some page
     Open Browser    ${server}    ${browser}
