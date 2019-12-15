@@ -1,15 +1,15 @@
 ---
 layout: post
 title:  "Don't mess up with variables in Robot Framework"
-date:   2017-12-09
+date:   2018-02-27
 comments: true
 ---
 
 <p class="intro"><span class="dropcap">V</span>ariables will be your best friend in Robot tests, so don't treat them with no respect.</p>
 
 When I started with Robot Framework, I was looking for some examples how to write the tests. And as I was getting quite quickly into use of Robot Framework, it happened that I started declaring the variables in multiple ways.
-It was working, of course, but your test project does not look good if it does not have a unified structure of variable declaration.
-I don't even remember why I dared to use spaces in the variable names, maybe I thought it looks more user friendly?  It loooks more like a human senctence then? Maybe, but now I don't think so at all. 
+Of course it works fine but the test project does not look good if it does not have a unified structure of variable declaration.
+I don't even remember why I dared to use spaces in the variable names, maybe I thought it looks more user friendly?  It loooks more like a human senctence then? Maybe, but now I don't think so at all and I am pretty upset I did it like that. 
 
 Soon I ended up with some variables written in upper case, some in lower case, some as snake case, some just with spaces:
 
@@ -40,10 +40,12 @@ Also beware that you should not declare one variable multiple times - e.g. if yo
 
 ${username}    some_username 
 {% endhighlight %} 
+
 then also declare the variable in Python file: 
 {% highlight python %}
 username = 'some_username' 
 {% endhighlight %} 
+
 and then you declare it even from command line like 
 {% highlight bash %}
 --variable username:some_username
